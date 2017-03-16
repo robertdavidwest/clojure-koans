@@ -5,7 +5,7 @@ experience assumed or required.  Just follow the instructions below to start
 making tests pass!
 
 
-### Getting Started
+## Getting Started
 
 The easiest and fastest way to get the koans up and running is to [download the
 latest zip file from Github](https://github.com/functional-koans/clojure-koans/releases).
@@ -20,6 +20,17 @@ your own branch - that way if you pull back the latest koans from master, it'll
 be a bit easier to manage the inevitable conflicts if we make changes to
 exercises you've already completed.
 
+You have a few options for installation:
+
+- Install the dependencies for the koans (such as Clojure) on your machine,
+- Use Vagrant and the configuration in this repository
+- Use Docker
+
+Instructions for each option are below!
+
+
+### Installation on Your Machine
+
 The only things you'll need to run the Clojure Koans are:
 
 - JRE 1.6 or higher
@@ -30,8 +41,6 @@ automatically install the Clojure jar in the right place. Leiningen will also
 get you a couple more jarfiles, including JLine, which allows you some of the
 functionality of readline (command-line history, for example).
 
-### Installing dependencies
-
 Dependencies are installed automatically with lein 2, but if for some reason
 you're on lein 1 and can't upgrade, you'll need to run
 
@@ -41,7 +50,40 @@ which will download all dependencies you need to run the Clojure koans.
 
 I strongly recommend that you upgrade to lein 2 instead!
 
-### Running the Koans
+
+### Installation with Vagrant
+
+Make sure you have [Vagrant](https://www.vagrantup.com/) and
+[VirtualBox](https://www.virtualbox.org) installed.
+In the root directory of the project, execute:
+
+```
+vagrant up
+vagrant ssh
+cd /vagrant
+lein koan run
+```
+
+
+### Installation with Docker
+
+Once you've got [Docker](https://www.docker.com/) installed, you're basically
+all set. You can run these commands to get started:
+
+To run koans:
+
+```
+docker run --rm -it -v $(pwd):/app -w /app clojure lein koan run
+```
+
+To execute REPL:
+
+```
+docker run --rm -it -v $(pwd):/app -w /app clojure lein repl
+```
+
+
+## Running the Koans
 
 If you're running from the zipfile, simply run
 
@@ -52,6 +94,10 @@ If you're running from the zipfile, simply run
 If you're running from a checkout using lein 2, run the koans via
 
 `lein koan run`
+
+If want to run directly from a REPL, once you are inside the `lein repl` prompt you can run the koans with
+
+`(exec "run")`
 
 It's an auto-runner, so as you save your files with the correct answers, it will
 advance you to the next koan or file (conveniently, all files are prefixed with
@@ -83,7 +129,7 @@ things pass, you should work thoughtfully, making sure you understand why the
 answer is what it is.  Enjoy your path to Clojure enlightenment!
 
 
-### Trying more things out
+## Trying more things out
 
 There's a REPL (Read-Evaluate-Print Loop) included in the Clojure Koans. Just
 run:
@@ -113,8 +159,7 @@ will show you what those commands mean.
 
 You can exit the REPL with `CTRL-d` on any OS.
 
-
-### Contributing
+## Contributing
 
 Patches are encouraged!  Make sure the answer sheet still passes
 (`lein koan test`), and send a pull request.
@@ -132,12 +177,12 @@ Feel free to contact me (Colin Jones / trptcolin) on Github or elsewhere if you
 have any questions or want more direction before you start pitching in.
 
 
-### Contributors
+## Contributors
 
 https://github.com/functional-koans/clojure-koans/contributors
 
 
-### Credits
+## Credits
 
 These exercises were started by [Aaron Bedra](http://github.com/abedra) of
 [Relevance, Inc.](http://github.com/relevance) in early 2010, as a learning
@@ -150,7 +195,7 @@ learning a programming language started with the
 [Ruby Koans](http://rubykoans.com) by [EdgeCase](http://github.com/edgecase).
 
 
-### License
+## License
 
 The use and distribution terms for this software are covered by the
 Eclipse Public License 1.0 (http://opensource.org/licenses/eclipse-1.0.php)
